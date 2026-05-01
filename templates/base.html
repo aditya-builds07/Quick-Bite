@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}QuickBite{% endblock %}</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block styles %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="/" class="logo" style="text-decoration: none; color: inherit;">
+                <i data-feather="coffee"></i>
+                <span>QuickBite</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/#menu">Menu</a></li>
+                <li><a href="/track">Track Order</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/admin">Admin</a></li>
+            </ul>
+            <div class="cart-icon" id="cart-btn" style="cursor: pointer; position: relative; margin-left: 20px;">
+                <i data-feather="shopping-bag"></i>
+                <span class="cart-count" id="cart-count" style="position: absolute; top: -8px; right: -8px; background: var(--primary); color: white; font-size: 0.7rem; padding: 2px 5px; border-radius: 50%; min-width: 18px; text-align: center;">0</span>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    <footer class="footer">
+        <div class="container">
+            <div class="grid grid-3">
+                <div class="footer-col">
+                    <h3>QuickBite</h3>
+                    <p>Delivering premium culinary experiences to your doorstep with speed and elegance.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                        <li><a href="/track">Track Order</a></li>
+                        <li><a href="/admin">Admin Panel</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="#"><i data-feather="facebook"></i></a>
+                        <a href="#"><i data-feather="instagram"></i></a>
+                        <a href="#"><i data-feather="twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 QuickBite. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+      feather.replace()
+    </script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

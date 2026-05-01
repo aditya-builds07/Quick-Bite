@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}QuickBite | Premium Food Delivery{% endblock %}
+
+{% block content %}
+<main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Premium Food<br>Delivered Fast.</h1>
+                <p>Experience the best culinary delights from the comfort of your home. Fresh ingredients, masterful chefs, quick delivery.</p>
+                <a href="#menu" class="btn btn-primary">Explore Menu</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=800" alt="Delicious Food">
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <h2 class="section-title">Our Menu</h2>
+            <div class="menu-grid" id="menu-grid">
+                <!-- Menu items will be injected here by JS -->
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Cart Sidebar -->
+<div class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+        <h3>Your Cart</h3>
+        <button id="close-cart" class="icon-btn"><i data-feather="x"></i></button>
+    </div>
+    <div class="cart-items" id="cart-items">
+        <!-- Cart items injected here -->
+        <div class="empty-cart-msg">Your cart is empty.</div>
+    </div>
+    <div class="cart-footer">
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cart-total-price">₹0</span>
+        </div>
+        <button id="checkout-btn" class="btn btn-primary btn-full" disabled>Proceed to Checkout</button>
+    </div>
+</div>
+<div class="cart-overlay" id="cart-overlay"></div>
+
+<!-- Checkout Modal -->
+<div class="modal" id="checkout-modal">
+    <div class="modal-content">
+        <button class="close-modal" id="close-checkout"><i data-feather="x"></i></button>
+        <h2>Checkout Details</h2>
+        <form id="checkout-form">
+            <div class="form-group">
+                <label for="cust-name">Full Name</label>
+                <input type="text" id="cust-name" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+                <label for="cust-phone">Phone Number</label>
+                <input type="tel" id="cust-phone" required placeholder="+91 9876543210">
+            </div>
+            <div class="form-group">
+                <label for="cust-email">Email Address</label>
+                <input type="email" id="cust-email" required placeholder="john@example.com">
+            </div>
+            <div class="form-group">
+                <label for="cust-address">Delivery Address</label>
+                <textarea id="cust-address" rows="3" required placeholder="123 Main St, Apartment 4B"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="place-order-btn">Place Order</button>
+        </form>
+    </div>
+</div>
+
+<!-- Invoice/Billing Modal -->
+<div class="modal" id="invoice-modal">
+    <div class="modal-content invoice-content">
+        <button class="close-modal" id="close-invoice"><i data-feather="x"></i></button>
+        <div class="invoice-header">
+            <h2><i data-feather="check-circle" style="color: var(--success); margin-right: 10px;"></i> Order Confirmed!</h2>
+            <p>Thank you for your order. Here is your receipt.</p>
+        </div>
+        <div class="invoice-details" id="invoice-details">
+            <!-- Invoice details injected here -->
+        </div>
+        <button class="btn btn-primary btn-full" id="print-invoice-btn" onclick="window.print()">Print Receipt</button>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}

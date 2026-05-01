@@ -1,0 +1,17 @@
+[
+    {
+        "order_id": "ord_1b19a731",
+        "customer_id": "cust_d46803c3",
+        "items": [
+            {
+                "item_id": "1",
+                "name": "Classic Burger",
+                "price": 150,
+                "quantity": 2
+            }
+        ],
+        "total_amount": 300,
+        "status": "Completed",
+        "timestamp": "2026-05-02T02:58:04.274081"
+    }
+]

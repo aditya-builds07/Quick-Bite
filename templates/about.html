@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}About Us | QuickBite{% endblock %}
+
+{% block content %}
+<section class="page-header" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=2070');">
+    <div class="container">
+        <h1 class="animate-up">Our Story</h1>
+        <p class="animate-up" style="animation-delay: 0.1s;">A journey of flavor, passion, and quick bites.</p>
+    </div>
+</section>
+
+<section class="section about-section">
+    <div class="container grid grid-2">
+        <div class="about-text animate-left">
+            <h2 class="section-title">The QuickBite Journey</h2>
+            <p>Founded in 2024, QuickBite started with a simple mission: to provide high-quality, delicious food with the speed and convenience that modern life demands. We believe that "quick" shouldn't mean "compromised."</p>
+            <p>Our chefs select only the freshest ingredients to craft a menu that balances classic comfort food with innovative culinary twists. Every order is a testament to our dedication to flavor and service.</p>
+            <div class="mission-box glass">
+                <h3>Our Mission</h3>
+                <p>"To revolutionize the fast-casual dining experience through culinary excellence and seamless technology."</p>
+            </div>
+        </div>
+        <div class="about-image animate-right">
+            <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&q=80&w=2070" alt="Restaurant Interior" class="img-responsive rounded-lg">
+        </div>
+    </div>
+</section>
+
+<section class="section gallery-section bg-light">
+    <div class="container">
+        <h2 class="section-title text-center">Visual Feast</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item glass animate-up" style="animation-delay: 0.1s;">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=1000" alt="Dish 1">
+                <div class="gallery-caption">Healthy Bowls</div>
+            </div>
+            <div class="gallery-item glass animate-up" style="animation-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7bb7445?auto=format&fit=crop&q=80&w=1000" alt="Dish 2">
+                <div class="gallery-caption">Signature Pancakes</div>
+            </div>
+            <div class="gallery-item glass animate-up" style="animation-delay: 0.3s;">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&q=80&w=1000" alt="Dish 3">
+                <div class="gallery-caption">Artisan Pizza</div>
+            </div>
+            <div class="gallery-item glass animate-up" style="animation-delay: 0.4s;">
+                <img src="https://images.unsplash.com/photo-1470333732907-3f17ca3c4f32?auto=format&fit=crop&q=80&w=1000" alt="Dish 4">
+                <div class="gallery-caption">Craft Cocktails</div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}Track Order | QuickBite{% endblock %}
+
+{% block content %}
+<section class="page-header" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1526367790999-015078648402?auto=format&fit=crop&q=80&w=2070');">
+    <div class="container">
+        <h1 class="animate-up">Track Your Order</h1>
+        <p class="animate-up" style="animation-delay: 0.1s;">Enter your Order ID to see real-time updates.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container" style="max-width: 600px;">
+        <div class="glass p-lg rounded-lg text-center animate-up">
+            <h2 class="mb-md">Order Status</h2>
+            <div class="form-group mb-lg">
+                <input type="text" id="track-id" placeholder="Enter Order ID (e.g. ord_abcd1234)" class="text-center">
+            </div>
+            <button class="btn btn-primary btn-full mb-lg" onclick="trackOrder()">Track Now</button>
+            
+            <div id="track-results" style="display: none;">
+                <hr class="mb-lg">
+                <h3 id="status-text" class="mb-md">Status: <span class="text-primary">Loading...</span></h3>
+                
+                <div class="tracking-progress-container">
+                    <div class="tracking-progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <div class="tracking-steps">
+                        <div class="step" id="step-preparing">
+                            <i data-feather="coffee"></i>
+                            <span>Preparing</span>
+                        </div>
+                        <div class="step" id="step-out">
+                            <i data-feather="truck"></i>
+                            <span>Out for Delivery</span>
+                        </div>
+                        <div class="step" id="step-delivered">
+                            <i data-feather="check-circle"></i>
+                            <span>Delivered</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="track-error" class="text-primary mt-md" style="display: none;">Order not found. Please check the ID.</div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    async function trackOrder() {
+        const orderId = document.getElementById('track-id').value.trim();
+        const results = document.getElementById('track-results');
+        const error = document.getElementById('track-error');
+        
+        if (!orderId) return;
+        
+        try {
+            const res = await fetch(`/api/track/${orderId}`);
+            const data = await res.json();
+            
+            if (data.success) {
+                results.style.display = 'block';
+                error.style.display = 'none';
+                
+                const status = data.status;
+                const statusSpan = document.querySelector('#status-text span');
+                statusSpan.textContent = status;
+                
+                updateProgress(status);
+            } else {
+                results.style.display = 'none';
+                error.style.display = 'block';
+            }
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    function updateProgress(status) {
+        const fill = document.getElementById('progress-fill');
+        const steps = {
+            'Preparing': { width: '33%', id: 'step-preparing' },
+            'Out for Delivery': { width: '66%', id: 'step-out' },
+            'Delivered': { width: '100%', id: 'step-delivered' },
+            'Completed': { width: '100%', id: 'step-delivered' }
+        };
+        
+        // Reset steps
+        document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+        
+        const config = steps[status] || steps['Preparing'];
+        fill.style.width = config.width;
+        
+        // Add active classes
+        if (status === 'Preparing') {
+            document.getElementById('step-preparing').classList.add('active');
+        } else if (status === 'Out for Delivery') {
+            document.getElementById('step-preparing').classList.add('active');
+            document.getElementById('step-out').classList.add('active');
+        } else if (status === 'Delivered' || status === 'Completed') {
+            document.getElementById('step-preparing').classList.add('active');
+            document.getElementById('step-out').classList.add('active');
+            document.getElementById('step-delivered').classList.add('active');
+        }
+    }
+</script>
+{% endblock %}
