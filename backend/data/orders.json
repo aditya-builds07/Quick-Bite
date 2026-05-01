@@ -1,0 +1,27 @@
+[
+    {
+        "order_id": "a469ab62",
+        "order_number": "QB-1001",
+        "customer_id": "cbe39ffb",
+        "customer_name": "Aditya Vikas Desai",
+        "items": [
+            {
+                "id": 1,
+                "name": "Margherita Pizza",
+                "price": 249,
+                "quantity": 2
+            },
+            {
+                "id": 2,
+                "name": "Chicken Burger",
+                "price": 179,
+                "quantity": 1
+            }
+        ],
+        "subtotal": 677,
+        "gst": 33.85,
+        "total": 710.85,
+        "status": "Confirmed",
+        "created_at": "2026-05-02 01:57:37"
+    }
+]

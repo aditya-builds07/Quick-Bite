@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "name": "Margherita Pizza",
+        "emoji": "🍕",
+        "price": 249,
+        "category": "Main Course",
+        "description": "Classic cheese pizza with fresh basil"
+    },
+    {
+        "id": 2,
+        "name": "Chicken Burger",
+        "emoji": "🍔",
+        "price": 179,
+        "category": "Main Course",
+        "description": "Juicy grilled chicken patty burger"
+    },
+    {
+        "id": 3,
+        "name": "Club Sandwich",
+        "emoji": "🥪",
+        "price": 149,
+        "category": "Snacks",
+        "description": "Triple-layer toasted club sandwich"
+    },
+    {
+        "id": 4,
+        "name": "French Fries",
+        "emoji": "🍟",
+        "price": 99,
+        "category": "Snacks",
+        "description": "Crispy golden salted french fries"
+    },
+    {
+        "id": 5,
+        "name": "Penne Pasta",
+        "emoji": "🍝",
+        "price": 199,
+        "category": "Main Course",
+        "description": "Creamy white sauce penne pasta"
+    },
+    {
+        "id": 6,
+        "name": "Cold Drink",
+        "emoji": "🥤",
+        "price": 59,
+        "category": "Beverages",
+        "description": "Chilled carbonated soft drink"
+    },
+    {
+        "id": 7,
+        "name": "Cappuccino",
+        "emoji": "☕",
+        "price": 129,
+        "category": "Beverages",
+        "description": "Rich and creamy cappuccino coffee"
+    },
+    {
+        "id": 8,
+        "name": "Ice Cream Sundae",
+        "emoji": "🍨",
+        "price": 139,
+        "category": "Desserts",
+        "description": "Vanilla sundae with chocolate drizzle"
+    }
+]
